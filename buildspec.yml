@@ -14,10 +14,12 @@ phases:
   build:
     commands:
       - echo Building ... | tee -a log.txt
-      - echo ls -l | tee -a log.txt
+      - echo "$ ls -l" | tee -a log.txt
       - ls -l 2>&1 | tee -a log.txt
-      - echo ls -l submodule | tee -a log.txt
+      - echo "$ ls -l submodule" | tee -a log.txt
       - ls -l submodule 2>&1 | tee -a log.txt
+      - echo docker-compose version | tee -a log.txt
+      - docker-compose version 2>&1 | tee -a log.txt
   post_build:
     commands:
       - echo post_build command ... | tee -a log.txt
